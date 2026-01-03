@@ -1,0 +1,158 @@
+<!-- Registration Section -->
+<section id="registro" class="py-20 bg-brand-blue relative overflow-hidden">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Right Side: Form -->
+        <div class="bg-white rounded-2xl shadow-2xl p-6 sm:p-8 md:p-10">
+            <div class="text-center mb-8">
+                <h3 class="text-2xl font-bold text-gray-900">
+                    Empieza a enseñar hoy
+                </h3>
+                <p class="text-sm text-gray-500">
+                    Es rápido, fácil y gratuito.
+                </p>
+            </div>
+
+            <form
+                id="teacherForm"
+                name="contact"
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                class="space-y-5"
+            >
+                <!-- Campo oculto para Netlify -->
+                <input type="hidden" name="form-name" value="contact" />
+
+                <!-- Campo honeypot para prevenir spam -->
+                <p class="hidden">
+                    <label>
+                        Don't fill this out if you're human: <input
+                            name="bot-field"
+                        />
+                    </label>
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <!-- Nombre -->
+                    <div>
+                        <label
+                            for="nombre"
+                            class="block text-sm font-medium text-gray-700"
+                            >Nombre</label
+                        >
+                        <input
+                            type="text"
+                            id="nombre"
+                            class="mt-1 block w-full rounded-lg border-gray-300 bg-gray-50 border p-2.5 focus:border-brand-blue focus:ring focus:ring-blue-200 transition text-sm"
+                            placeholder="Juan"
+                        />
+                        <p
+                            class="text-red-500 text-xs mt-1 hidden"
+                            id="error-nombre"
+                        >
+                            Requerido
+                        </p>
+                    </div>
+                    <!-- Apellido -->
+                    <div>
+                        <label
+                            for="apellido"
+                            class="block text-sm font-medium text-gray-700"
+                            >Apellido</label
+                        >
+                        <input
+                            type="text"
+                            id="apellido"
+                            class="mt-1 block w-full rounded-lg border-gray-300 bg-gray-50 border p-2.5 focus:border-brand-blue focus:ring focus:ring-blue-200 transition text-sm"
+                            placeholder="Pérez"
+                        />
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div>
+                    <label
+                        for="email"
+                        class="block text-sm font-medium text-gray-700"
+                        >Correo Electrónico</label
+                    >
+                    <div class="relative mt-1">
+                        <div
+                            class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+                        >
+                            <i class="fa-regular fa-envelope text-gray-400"></i>
+                        </div>
+                        <input
+                            type="email"
+                            id="email"
+                            class="block w-full pl-10 rounded-lg border-gray-300 bg-gray-50 border p-2.5 focus:border-brand-blue focus:ring focus:ring-blue-200 transition text-sm"
+                            placeholder="juan@ejemplo.com"
+                        />
+                    </div>
+                    <p
+                        class="text-red-500 text-xs mt-1 hidden"
+                        id="error-email"
+                    >
+                        Email inválido
+                    </p>
+                </div>
+
+                <!-- Nivel (Renamed from materia to nivel) -->
+                <div>
+                    <label
+                        for="nivel"
+                        class="block text-sm font-medium text-gray-700"
+                        >¿En qué nivel quieres enseñar?</label
+                    >
+                    <select
+                        id="nivel"
+                        class="mt-1 block w-full rounded-lg border-gray-300 bg-gray-50 border p-2.5 focus:border-brand-blue focus:ring focus:ring-blue-200 transition text-sm"
+                    >
+                        <option value="">Selecciona el nivel académico</option>
+                        <option value="primario">Primario</option>
+                        <option value="secundario">Secundario</option>
+                        <option value="terciario">Terciario</option>
+                        <option value="universitario">Universitario</option>
+                        <option value="todos">Todos los niveles</option>
+                    </select>
+                    <p
+                        class="text-red-500 text-xs mt-1 hidden"
+                        id="error-nivel"
+                    >
+                        Selecciona una opción
+                    </p>
+                </div>
+
+                <!-- Materia (New Input) -->
+                <div>
+                    <label
+                        for="materia"
+                        class="block text-sm font-medium text-gray-700"
+                        >¿Qué materia/s enseñas?</label
+                    >
+                    <input
+                        type="text"
+                        id="materia"
+                        class="mt-1 block w-full rounded-lg border-gray-300 bg-gray-50 border p-2.5 focus:border-brand-blue focus:ring focus:ring-blue-200 transition text-sm"
+                        placeholder="Ej: Matemáticas, Piano, Inglés..."
+                    />
+                    <p
+                        class="text-red-500 text-xs mt-1 hidden"
+                        id="error-materia"
+                    >
+                        Requerido
+                    </p>
+                </div>
+
+                <!-- Submit -->
+                <button
+                    type="submit"
+                    id="submitBtn"
+                    class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-md text-base font-bold text-white bg-brand-dark hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition duration-150 ease-in-out transform hover:-translate-y-0.5"
+                >
+                    REGISTRARME GRATIS
+                </button>
+            </form>
+        </div>
+    </div>
+</section>

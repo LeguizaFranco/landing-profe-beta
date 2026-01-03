@@ -1,0 +1,261 @@
+<section id="demos" class="py-24 bg-gray-900 text-white overflow-hidden">
+    <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2
+                class="text-blue-400 font-semibold tracking-wide uppercase text-sm"
+            >
+                Tour por la plataforma
+            </h2>
+            <h2 class="text-3xl font-extrabold text-white sm:text-4xl mt-2">
+                Conoce ProfeLink por dentro
+            </h2>
+            <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">
+                Una interfaz limpia y potente diseñada para que gestiones tus
+                clases en segundos.
+            </p>
+        </div>
+
+        <div class="lg:grid lg:grid-cols-12 lg:gap-12 items-start">
+            <!-- Menu / Tabs (Izquierda) -->
+            <div class="lg:col-span-3 flex flex-col space-y-4 mb-10 lg:mb-0">
+                <!-- Tab 1 -->
+                <button
+                    onclick="switchDemo('aula')"
+                    id="btn-aula"
+                    class="demo-tab active text-left p-5 rounded-2xl border border-gray-700 bg-gray-800 hover:bg-gray-700 transition-all duration-300 group focus:outline-none"
+                >
+                    <div class="flex items-start gap-5">
+                        <div
+                            class="icon-container w-12 h-12 shrink-0 rounded-xl bg-blue-900/50 text-blue-400 flex items-center justify-center group-[.active]:bg-brand-blue group-[.active]:text-white transition-colors"
+                        >
+                            <i class="fa-solid fa-video text-lg"></i>
+                        </div>
+                        <div>
+                            <h3
+                                class="font-bold text-lg text-white group-[.active]:text-brand-blue transition-colors leading-tight"
+                            >
+                                Home
+                            </h3>
+                            <p
+                                class="text-sm text-gray-400 mt-2 leading-relaxed"
+                            >
+                                Busqueda y filtros para encontrar el profesor
+                                ideal.
+                            </p>
+                        </div>
+                    </div>
+                </button>
+
+                <!-- Tab 2 -->
+                <button
+                    onclick="switchDemo('panel')"
+                    id="btn-panel"
+                    class="demo-tab text-left p-5 rounded-2xl border border-transparent hover:bg-gray-800 transition-all duration-300 group focus:outline-none"
+                >
+                    <div class="flex items-start gap-5">
+                        <div
+                            class="icon-container w-12 h-12 shrink-0 rounded-xl bg-gray-800 text-gray-500 flex items-center justify-center group-[.active]:bg-brand-blue group-[.active]:text-white transition-colors"
+                        >
+                            <i class="fa-solid fa-table-columns text-lg"></i>
+                        </div>
+                        <div>
+                            <h3
+                                class="font-bold text-lg text-gray-300 group-[.active]:text-brand-blue transition-colors leading-tight"
+                            >
+                                Dashboard
+                            </h3>
+                            <p
+                                class="text-sm text-gray-500 mt-2 leading-relaxed"
+                            >
+                                Gestiona tu calendario, administra tus clases,
+                                charla con tus alumnos.
+                            </p>
+                        </div>
+                    </div>
+                </button>
+
+                <!-- Tab 3 -->
+                <button
+                    onclick="switchDemo('pagos')"
+                    id="btn-pagos"
+                    class="demo-tab text-left p-5 rounded-2xl border border-transparent hover:bg-gray-800 transition-all duration-300 group focus:outline-none"
+                >
+                    <div class="flex items-start gap-5">
+                        <div
+                            class="icon-container w-12 h-12 shrink-0 rounded-xl bg-gray-800 text-gray-500 flex items-center justify-center group-[.active]:bg-brand-blue group-[.active]:text-white transition-colors"
+                        >
+                            <i class="fa-solid fa-user text-lg"></i>
+                        </div>
+                        <div>
+                            <h3
+                                class="font-bold text-lg text-gray-300 group-[.active]:text-brand-blue transition-colors leading-tight"
+                            >
+                                Perfil
+                            </h3>
+                            <p
+                                class="text-sm text-gray-500 mt-2 leading-relaxed"
+                            >
+                                Muestrale a tus alumnos información que aporte
+                                valor.
+                            </p>
+                        </div>
+                    </div>
+                </button>
+            </div>
+
+            <!-- Visor de Imagen (Derecha) -->
+            <div class="lg:col-span-9">
+                <!-- Image Container (Sin marcos ni decoraciones) -->
+                <div
+                    class="relative bg-gray-900 rounded-2xl overflow-hidden group h-65 sm:h-90 md:h-110 lg:h-135 shadow-2xl"
+                >
+                    <!-- Image 1: Aula -->
+                    <video
+                        id="img-aula"
+                        src="/v2.webm"
+                        class="demo-img w-full h-full object-contain transition-opacity duration-500 opacity-100 absolute inset-0"
+                        autoplay
+                        muted
+                        loop
+                        preload="none"
+                        playsinline></video>
+                    <!-- Image 2: Panel -->
+                    <video
+                        id="img-panel"
+                        src="/v1.webm"
+                        class="demo-img w-full h-full object-contain transition-opacity duration-500 opacity-0 absolute inset-0"
+                        autoplay
+                        muted
+                        loop
+                        preload="none"
+                        playsinline></video>
+
+                    <!-- Image 3: Pagos -->
+                    <video
+                        id="img-pagos"
+                        src="/v3.webm"
+                        class="demo-img w-full h-full object-contain transition-opacity duration-500 opacity-0 absolute inset-0"
+                        autoplay
+                        muted
+                        loop
+                        preload="none"
+                        playsinline></video>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script is:inline>
+    (() => {
+        function switchDemo(featureId) {
+            // 1) Reset tabs
+            document.querySelectorAll("#demos .demo-tab").forEach((tab) => {
+                tab.classList.remove(
+                    "active",
+                    "bg-gray-800",
+                    "border-gray-700",
+                );
+                tab.classList.add("border-transparent");
+
+                const iconBg = tab.querySelector(".icon-container");
+                if (iconBg) {
+                    iconBg.classList.remove(
+                        "bg-brand-blue",
+                        "text-white",
+                        "bg-blue-900/50",
+                        "text-blue-400",
+                    );
+                    iconBg.classList.add("bg-gray-800", "text-gray-500");
+                }
+
+                const title = tab.querySelector("h3");
+                if (title) {
+                    title.classList.remove("text-brand-blue", "text-white");
+                    title.classList.add("text-gray-300");
+                }
+            });
+
+            // 2) Hide all images
+            document.querySelectorAll("#demos .demo-img").forEach((img) => {
+                img.classList.remove("opacity-100");
+                img.classList.add("opacity-0");
+            });
+
+            // 3) Activate clicked tab
+            const activeTab = document.getElementById(`btn-${featureId}`);
+            if (activeTab) {
+                activeTab.classList.add(
+                    "active",
+                    "bg-gray-800",
+                    "border-gray-700",
+                );
+                activeTab.classList.remove("border-transparent");
+
+                const activeIcon = activeTab.querySelector(".icon-container");
+                if (activeIcon) {
+                    activeIcon.classList.remove(
+                        "bg-gray-800",
+                        "text-gray-500",
+                        "bg-blue-900/50",
+                        "text-blue-400",
+                    );
+                    activeIcon.classList.add("bg-brand-blue", "text-white");
+                }
+
+                const activeTitle = activeTab.querySelector("h3");
+                if (activeTitle) {
+                    activeTitle.classList.remove("text-gray-300", "text-white");
+                    activeTitle.classList.add("text-brand-blue");
+                }
+            }
+
+            // 4) Show selected image
+            const activeImg = document.getElementById(`img-${featureId}`);
+            if (activeImg) {
+                activeImg.classList.remove("opacity-0");
+                activeImg.classList.add("opacity-100");
+            }
+        }
+
+        // IMPORTANTE: exponerlo a window para que funcione con onclick=""
+        window.switchDemo = switchDemo;
+
+        // Inicializar estado (por si el HTML no coincide)
+        const initial =
+            document
+                .querySelector("#demos .demo-tab.active")
+                ?.id?.replace("btn-", "") ?? "aula";
+        switchDemo(initial);
+
+        // Modal (robusto: no crashea si no existe en esta página)
+        function openModal(title, videoUrl) {
+            const videoModal = document.getElementById("videoModal");
+            const modalIframe = document.getElementById("modalIframe");
+            const modalTitle = document.getElementById("modalTitle");
+            if (!videoModal || !modalIframe || !modalTitle) return;
+
+            modalTitle.textContent = title;
+            modalIframe.src = videoUrl;
+            videoModal.classList.remove("hidden");
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeModal() {
+            const videoModal = document.getElementById("videoModal");
+            const modalIframe = document.getElementById("modalIframe");
+            if (!videoModal || !modalIframe) return;
+
+            videoModal.classList.add("hidden");
+            modalIframe.src = "";
+            document.body.style.overflow = "auto";
+        }
+
+        window.openModal = openModal;
+        window.closeModal = closeModal;
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") closeModal();
+        });
+    })();
+</script>
