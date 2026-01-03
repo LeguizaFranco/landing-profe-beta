@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Acordeón FAQ animado */
+details>summary {
+    list-style: none;
+}
+
+details>summary::-webkit-details-marker {
+    display: none;
+}
+
+details[open] summary~* {
+    animation: sweep .3s ease-in-out;
+}
+
+button {
+    cursor: pointer;
+}
+
+@keyframes sweep {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px)
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+/* Hero Pattern */
+.hero-bg {
+    background-color: #f8fafc;
+    background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+/* Play Button Hover Effect */
+.video-card:hover .play-icon {
+    transform: scale(1.1);
+    background-color: #3551F0;
+    /* brand-blue */
+    border-color: #3551F0;
+}
+
+.video-card:hover .thumbnail-overlay {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Toast Notification */
+.toast {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    padding: 16px;
+    position: fixed;
+    z-index: 60;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s, bottom 0.3s;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+    bottom: 50px;
+}
+
+/* Colores personalizados */
+.text-brand-blue {
+    color: #3551F0;
+}
+
+.bg-brand-blue {
+    background-color: #3551F0;
+}
+
+.text-brand-dark {
+    color: #1a202c;
+}
+
+.bg-brand-dark {
+    background-color: #1a202c;
+}
+
+.text-brand-light {
+    color: #f8fafc;
+}
+
+.bg-brand-light {
+    background-color: #f8fafc;
+}
+
+.text-brand-accent {
+    color: #38bdf8;
+}
+
+.bg-brand-accent {
+    background-color: #38bdf8;
+}
+
+/* Fuente personalizada */
+.font-sans {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Animaciones personalizadas */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(-25%);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+
+    50% {
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+}
+
+.animate-bounce-slow {
+    animation: bounce 3s infinite;
+}

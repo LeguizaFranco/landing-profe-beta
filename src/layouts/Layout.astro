@@ -1,15 +1,61 @@
+---
+import "../styles/global.css";
+---
+
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/webp" href="/logo.webp" />
+        <link rel="apple-touch-icon" href="/logo.webp" />
+        <meta name="generator" content={Astro.generator} />
+        <meta name="theme-color" content="#2563eb" />
+
+        <!-- SEO & Metadatos -->
+        <title>ProfeLink | Gestión Integral para Profesores Particulares</title>
+        <meta
+            name="description"
+            content="Optimiza tus clases particulares con ProfeLink. Gestiona alumnos, agendas, pagos y aula virtual en un solo lugar. La herramienta definitiva para docentes."
+        />
+        <meta
+            name="keywords"
+            content="profesores particulares, gestión de clases, aula virtual, agenda docente, software educativo, Tandil Solution, clases online, control de pagos alumnos"
+        />
+        <meta name="author" content="Tandil Solution" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://profelink.com.ar" />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://profelink.com.ar/" />
+        <meta property="og:site_name" content="ProfeLink" />
+        <meta property="og:locale" content="es_AR" />
+        <meta
+            property="og:title"
+            content="ProfeLink - Conecta, Enseña y Crece"
+        />
+        <meta
+            property="og:description"
+            content="La plataforma todo-en-uno para profesores particulares. Gestiona tu negocio educativo de forma profesional."
+        />
+        <meta property="og:image" content="https://profelink.com.ar/logo.webp" />
+
+        <!-- Fuente Inter -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Iconos -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+    </head>
+    <body class="text-gray-700 bg-white antialiased pb-16 md:pb-0">
+        <slot />
+    </body>
 </html>
 
 <style>
