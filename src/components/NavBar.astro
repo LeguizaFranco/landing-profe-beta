@@ -14,7 +14,6 @@
                     src="/logo.webp"
                     alt="ProfeLink Logo"
                     class="h-20 w-auto"
-                    loading="lazy"
                 />
             </div>
 
@@ -66,11 +65,7 @@
                 class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-brand-blue hover:bg-gray-50"
                 >Beneficios</a
             >
-            <a
-                href="#herramientas"
-                class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-brand-blue hover:bg-gray-50"
-                >Herramientas</a
-            >
+
             <a
                 href="#demos"
                 class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-brand-blue hover:bg-gray-50"
@@ -89,3 +84,41 @@
         </div>
     </div>
 </nav>
+
+<script is:inline>
+    // --- Mobile Menu Logic ---
+    const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const navbar = document.getElementById("navbar");
+
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+            const icon = mobileMenuBtn.querySelector("i");
+            if (mobileMenu.classList.contains("hidden")) {
+                icon.classList.remove("fa-xmark");
+                icon.classList.add("fa-bars");
+            } else {
+                icon.classList.remove("fa-bars");
+                icon.classList.add("fa-xmark");
+            }
+        });
+    }
+
+    document.querySelectorAll("#mobile-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+            mobileMenu.classList.add("hidden");
+            mobileMenuBtn.querySelector("i").classList.remove("fa-xmark");
+            mobileMenuBtn.querySelector("i").classList.add("fa-bars");
+        });
+    });
+
+    // --- Scroll Shadow Effect ---
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 10) {
+            navbar.classList.add("shadow-md");
+        } else {
+            navbar.classList.remove("shadow-md");
+        }
+    });
+</script>
