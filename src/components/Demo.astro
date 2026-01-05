@@ -15,9 +15,10 @@
             </p>
         </div>
 
-        <div class="lg:grid lg:grid-cols-12 lg:gap-12 items-start">
+        <!-- Vista Desktop: Tabs + Video (lg y superior) -->
+        <div class="hidden lg:grid lg:grid-cols-12 lg:gap-12 items-start">
             <!-- Menu / Tabs (Izquierda) -->
-            <div class="lg:col-span-3 flex flex-col space-y-4 mb-10 lg:mb-0">
+            <div class="lg:col-span-3 flex flex-col space-y-4">
                 <!-- Tab 1 -->
                 <button
                     onclick="switchDemo('aula')"
@@ -103,11 +104,10 @@
                 </button>
             </div>
 
-            <!-- Visor de Imagen (Derecha) -->
+            <!-- Visor de Video (Derecha) -->
             <div class="lg:col-span-9">
-                <!-- Image Container (Sin marcos ni decoraciones) -->
                 <div
-                    class="relative bg-gray-900 rounded-2xl overflow-hidden group h-65 sm:h-90 md:h-110 lg:h-135 shadow-2xl"
+                    class="relative bg-gray-900 rounded-2xl overflow-hidden group h-175 shadow-2xl"
                 >
                     <!-- Image 1: Aula -->
                     <video
@@ -118,6 +118,7 @@
                         muted
                         loop
                         preload="none"
+                        controlslist="nodownload"
                         playsinline></video>
                     <!-- Image 2: Panel -->
                     <video
@@ -128,6 +129,7 @@
                         muted
                         loop
                         preload="none"
+                        controlslist="nodownload"
                         playsinline></video>
 
                     <!-- Image 3: Pagos -->
@@ -139,7 +141,155 @@
                         muted
                         loop
                         preload="none"
+                        controlslist="nodownload"
                         playsinline></video>
+
+                    <!-- Botón pantalla completa (Desktop) -->
+                    <button
+                        onclick="openFullscreenDesktop()"
+                        class="absolute top-4 right-4 w-12 h-12 bg-gray-900/80 hover:bg-brand-blue rounded-full flex items-center justify-center transition-colors z-10 opacity-0 group-hover:opacity-100"
+                        aria-label="Ver en pantalla completa"
+                    >
+                        <i class="fa-solid fa-expand text-white"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vista Mobile: Grid de Videos (menor a lg) -->
+        <div class="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <!-- Video 1: Home -->
+            <div class="relative group">
+                <div
+                    class="relative bg-gray-800 rounded-2xl overflow-hidden shadow-2xl aspect-video"
+                >
+                    <video
+                        id="video-home"
+                        src="/v2.webm"
+                        class="w-full h-full object-cover"
+                        muted
+                        loop
+                        playsinline
+                        preload="metadata"></video>
+
+                    <!-- Overlay con info -->
+                    <div
+                        class="absolute inset-0 bg-linear-to-t from-gray-900/90 via-gray-900/50 to-transparent flex flex-col justify-end p-4 sm:p-6"
+                    >
+                        <div class="flex items-center gap-3 mb-2">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-brand-blue flex items-center justify-center"
+                            >
+                                <i class="fa-solid fa-video text-white"></i>
+                            </div>
+                            <h3 class="font-bold text-lg sm:text-xl text-white">
+                                Home
+                            </h3>
+                        </div>
+                        <p class="text-xs sm:text-sm text-gray-300">
+                            Busqueda y filtros para encontrar el profesor ideal.
+                        </p>
+                    </div>
+
+                    <!-- Botón pantalla completa (Mobile) -->
+                    <button
+                        onclick="openFullscreenMobile('video-home')"
+                        class="absolute top-4 right-4 w-10 h-10 bg-gray-900/80 hover:bg-brand-blue rounded-full flex items-center justify-center transition-colors z-10"
+                        aria-label="Ver en pantalla completa"
+                    >
+                        <i class="fa-solid fa-expand text-white text-sm"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Video 2: Dashboard -->
+            <div class="relative group">
+                <div
+                    class="relative bg-gray-800 rounded-2xl overflow-hidden shadow-2xl aspect-video"
+                >
+                    <video
+                        id="video-dashboard"
+                        src="/v1.webm"
+                        class="w-full h-full object-cover"
+                        muted
+                        loop
+                        playsinline
+                        preload="metadata"></video>
+
+                    <!-- Overlay con info -->
+                    <div
+                        class="absolute inset-0 bg-linear-to-t from-gray-900/90 via-gray-900/50 to-transparent flex flex-col justify-end p-4 sm:p-6"
+                    >
+                        <div class="flex items-center gap-3 mb-2">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-brand-blue flex items-center justify-center"
+                            >
+                                <i class="fa-solid fa-table-columns text-white"
+                                ></i>
+                            </div>
+                            <h3 class="font-bold text-lg sm:text-xl text-white">
+                                Dashboard
+                            </h3>
+                        </div>
+                        <p class="text-xs sm:text-sm text-gray-300">
+                            Gestiona tu calendario, administra tus clases,
+                            charla con tus alumnos.
+                        </p>
+                    </div>
+
+                    <!-- Botón pantalla completa (Mobile) -->
+                    <button
+                        onclick="openFullscreenMobile('video-dashboard')"
+                        class="absolute top-4 right-4 w-10 h-10 bg-gray-900/80 hover:bg-brand-blue rounded-full flex items-center justify-center transition-colors z-10"
+                        aria-label="Ver en pantalla completa"
+                    >
+                        <i class="fa-solid fa-expand text-white text-sm"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Video 3: Perfil -->
+            <div class="relative group">
+                <div
+                    class="relative bg-gray-800 rounded-2xl overflow-hidden shadow-2xl aspect-video"
+                >
+                    <video
+                        id="video-perfil"
+                        src="/v3.webm"
+                        class="w-full h-full object-cover"
+                        muted
+                        loop
+                        playsinline
+                        preload="metadata"></video>
+
+                    <!-- Overlay con info -->
+                    <div
+                        class="absolute inset-0 bg-linear-to-t from-gray-900/90 via-gray-900/50 to-transparent flex flex-col justify-end p-4 sm:p-6"
+                    >
+                        <div class="flex items-center gap-3 mb-2">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-brand-blue flex items-center justify-center"
+                            >
+                                <i class="fa-solid fa-user text-white"></i>
+                            </div>
+                            <h3 class="font-bold text-lg sm:text-xl text-white">
+                                Perfil
+                            </h3>
+                        </div>
+                        <p class="text-xs sm:text-sm text-gray-300">
+                            Muestrale a tus alumnos información que aporte
+                            valor.
+                        </p>
+                    </div>
+
+                    <!-- Botón pantalla completa (Mobile) -->
+                    <button
+                        onclick="openFullscreenMobile('video-perfil')"
+                        class="absolute top-4 right-4 w-10 h-10 bg-gray-900/80 hover:bg-brand-blue rounded-full flex items-center justify-center transition-colors z-10"
+                        aria-label="Ver en pantalla completa"
+                    >
+                        <i class="fa-solid fa-expand text-white text-sm"></i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -148,6 +298,7 @@
 
 <script is:inline>
     (() => {
+        // Función switchDemo para desktop
         function switchDemo(featureId) {
             // 1) Reset tabs
             document.querySelectorAll("#demos .demo-tab").forEach((tab) => {
@@ -218,44 +369,78 @@
             }
         }
 
-        // IMPORTANTE: exponerlo a window para que funcione con onclick=""
         window.switchDemo = switchDemo;
 
-        // Inicializar estado (por si el HTML no coincide)
+        // Inicializar estado desktop
         const initial =
             document
                 .querySelector("#demos .demo-tab.active")
                 ?.id?.replace("btn-", "") ?? "aula";
         switchDemo(initial);
 
-        // Modal (robusto: no crashea si no existe en esta página)
-        function openModal(title, videoUrl) {
-            const videoModal = document.getElementById("videoModal");
-            const modalIframe = document.getElementById("modalIframe");
-            const modalTitle = document.getElementById("modalTitle");
-            if (!videoModal || !modalIframe || !modalTitle) return;
+        // Función para abrir pantalla completa en Desktop
+        function openFullscreenDesktop() {
+            const activeVideo = document.querySelector(
+                "#demos .demo-img.opacity-100",
+            );
+            if (!activeVideo) return;
 
-            modalTitle.textContent = title;
-            modalIframe.src = videoUrl;
-            videoModal.classList.remove("hidden");
-            document.body.style.overflow = "hidden";
+            activeVideo.play();
+
+            if (activeVideo.requestFullscreen) {
+                activeVideo.requestFullscreen();
+            } else if (activeVideo.webkitRequestFullscreen) {
+                activeVideo.webkitRequestFullscreen();
+            } else if (activeVideo.mozRequestFullScreen) {
+                activeVideo.mozRequestFullScreen();
+            } else if (activeVideo.msRequestFullscreen) {
+                activeVideo.msRequestFullscreen();
+            }
         }
 
-        function closeModal() {
-            const videoModal = document.getElementById("videoModal");
-            const modalIframe = document.getElementById("modalIframe");
-            if (!videoModal || !modalIframe) return;
+        window.openFullscreenDesktop = openFullscreenDesktop;
 
-            videoModal.classList.add("hidden");
-            modalIframe.src = "";
-            document.body.style.overflow = "auto";
+        // Función para abrir pantalla completa en Mobile
+        function openFullscreenMobile(videoId) {
+            const video = document.getElementById(videoId);
+            if (!video) return;
+
+            video.play();
+
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.webkitRequestFullscreen) {
+                video.webkitRequestFullscreen();
+            } else if (video.mozRequestFullScreen) {
+                video.mozRequestFullScreen();
+            } else if (video.msRequestFullscreen) {
+                video.msRequestFullscreen();
+            }
         }
 
-        window.openModal = openModal;
-        window.closeModal = closeModal;
+        window.openFullscreenMobile = openFullscreenMobile;
 
-        document.addEventListener("keydown", (event) => {
-            if (event.key === "Escape") closeModal();
-        });
+        // Auto-play videos mobile cuando entran en viewport
+        const mobileVideos = document.querySelectorAll(
+            "#demos .lg\\:hidden video",
+        );
+
+        if (mobileVideos.length > 0) {
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        const video = entry.target;
+                        if (entry.isIntersecting) {
+                            video.play();
+                        } else {
+                            video.pause();
+                        }
+                    });
+                },
+                { threshold: 0.5 },
+            );
+
+            mobileVideos.forEach((video) => observer.observe(video));
+        }
     })();
 </script>
